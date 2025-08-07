@@ -1,0 +1,617 @@
+/* ========================================
+   VARIÁVEIS CSS E CONFIGURAÇÕES GLOBAIS
+   Mobile-First Design com Bootstrap
+======================================== */
+
+:root {
+    /* Paleta de cores */
+    --primary-color: #031d4d;      /* Azul marinho */
+    --secondary-color: #c36d18;    /* Terracota */
+    --white: #ffffff;
+    --light-gray: #f8f9fa;
+    --dark-gray: #333333;
+    --overlay-color: rgba(0, 35, 102, 0.7);
+    
+    /* Fontes */
+    --font-title: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+    
+    /* Transições */
+    --transition-smooth: all 0.3s ease;
+    --transition-fast: all 0.2s ease;
+    
+    /* Sombras para mobile */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Configurações base mobile-first */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    /* Previne zoom horizontal em mobile */
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--dark-gray);
+    background-color: var(--white);
+    /* Otimização para touch */
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+/* ========================================
+   CABEÇALHO COM PARALLAX MOBILE-FIRST
+======================================== */
+
+.hero-section {
+    height: 400px !important;
+    background-image: linear-gradient(var(--overlay-color), var(--overlay-color)), 
+        url('imagens/casal.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll; /* Scroll em mobile para melhor performance */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Parallax apenas em desktop */
+@media (min-width: 992px) {
+    .hero-section {
+        background-attachment: fixed;
+        height: 100vh;
+
+    }
+}
+
+.hero-overlay {
+    background: linear-gradient(135deg, var(--overlay-color), rgba(209, 62, 31, 0.3));
+    z-index: 1;
+}
+
+.hero-section .container-fluid {
+    position: relative;
+    z-index: 2;
+}
+
+/* Logo do casamento */
+.logo-container {
+    animation: fadeInDown 1s ease-out;
+    margin-bottom: 10px !important;
+    margin-top: 1px !important;
+}
+
+.wedding-logo {
+    display: block;
+    margin: 0 auto;
+    max-width: 120px;
+    height: auto;
+    transition: var(--transition-smooth);    
+}
+
+.wedding-nome {
+    display: block;
+    margin: 0 auto;
+    max-width: 70%;
+    height: auto;
+    transition: var(--transition-smooth);    
+}
+
+/* Mobile: logo menor */
+@media (max-width: 576px) {
+    .wedding-logo {
+        max-width: 80px;
+        
+    }
+}
+
+/* Nomes do casal */
+.couple-names {
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.bride-name,
+.groom-name {
+    font-family: var(--font-title);
+    font-weight: 700;
+    color: var(--white);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.ampersand {
+    font-family: var(--font-title);
+    color: var(--white);
+    opacity: 0.9;
+    margin: 0 0.5rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.wedding-subtitle {
+    color: var(--white);
+    opacity: 0.95;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 1s ease-out 0.6s both;
+    margin-bottom: 10 px;
+    margin-top: 5px;
+    font-size: 70%; 
+}
+
+/* Mobile: ajustes de tipografia */
+@media (max-width: 576px) {
+    .couple-names {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .ampersand {
+        margin: 0;
+    }
+}
+
+/* ========================================
+   SEÇÃO PRINCIPAL - MOBILE-FIRST
+======================================== */
+
+.main-content {
+    background: linear-gradient(to bottom, var(--white), var(--light-gray));
+}
+
+/* Introdução da seção */
+.gifts-intro {
+    animation: fadeInUp 1s ease-out;
+}
+
+.section-title {
+    font-family: var(--font-title);
+    color: var(--primary-color);
+    font-weight: 400;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.section-description {
+    color: var(--dark-gray);
+    opacity: 0.8;
+}
+
+/* ========================================
+   CARDS DE PRESENTES - BOOTSTRAP GRID
+======================================== */
+
+.gift-card {
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    border: none;
+    height: 100%;
+    /* Otimização para touch */
+    touch-action: manipulation;
+}
+
+.gift-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Mobile: hover menos agressivo */
+@media (max-width: 768px) {
+    .gift-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+    }
+}
+
+/* Imagem do presente */
+.gift-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background-color: var(--light-gray);
+    transition: var(--transition-smooth);
+}
+
+.gift-card:hover .gift-image {
+    transform: scale(1.05);
+}
+
+/* Conteúdo do card */
+.gift-content {
+    padding: 1.5rem;
+}
+
+.gift-name {
+    font-family: var(--font-title);
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.gift-price {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+/* Botão presentear */
+.gift-button {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, var(--primary-color), #003d99);
+    color: var(--white);
+    border: none;
+    border-radius: 12px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    /* Melhor área de toque em mobile */
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.gift-button:hover {
+    background: linear-gradient(135deg, var(--secondary-color), #ff4d2a);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.gift-button:active {
+    transform: translateY(0);
+}
+
+/* ========================================
+   MODAL PIX - BOOTSTRAP PERSONALIZADO
+======================================== */
+
+.modal-content {
+    border-radius: 20px;
+    border: none;
+    overflow: hidden;
+}
+
+.modal-header {
+    background: linear-gradient(135deg, var(--primary-color), #003d99);
+    color: var(--white);
+    padding: 1.5rem;
+}
+
+.modal-title {
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+}
+
+.gift-name-modal {
+    color: rgba(255, 255, 255, 0.849);
+    font-size: 1rem;
+}
+
+.btn-close {
+    filter: invert(1);
+    opacity: 0.8;
+}
+
+.btn-close:hover {
+    opacity: 1;
+}
+
+/* QR Code */
+.qr-code-container {
+    padding: 1px;
+    background: var(--light-gray);
+    border-radius: 1px;
+    text-align: center;
+}
+
+.qr-code {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Mobile: QR Code menor */
+@media (max-width: 576px) {
+    .qr-code {
+        max-width: 150px;
+    }
+}
+
+/* Campos de input */
+.form-control {
+    border-radius: 12px;
+    border: 2px solid #e9ecef;
+    padding: 0.75rem 1rem;
+    font-family: var(--font-body);
+    transition: var(--transition-fast);
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 35, 102, 0.25);
+}
+
+.btn-outline-secondary {
+    border-radius: 12px;
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+    font-weight: 500;
+    /* Melhor área de toque */
+    min-height: 48px;
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--white);
+}
+
+/* Alert personalizado */
+.alert-info {
+    background: linear-gradient(135deg, #e3f2fd, #f3e5f5);
+    border: none;
+    border-radius: 12px;
+    color: var(--dark-gray);
+}
+
+.alert-heading {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* ========================================
+   RODAPÉ
+======================================== */
+
+.footer {
+    background: linear-gradient(135deg, var(--primary-color), #001a4d) !important;
+    margin-top: 3rem;
+}
+
+.footer p {
+    margin-bottom: 0.5rem;
+}
+
+.footer .small {
+    opacity: 0.8;
+}
+
+/* ========================================
+   ANIMAÇÕES E EFEITOS
+======================================== */
+
+/* Animações de entrada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animação para cards */
+.gift-card {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Delay escalonado para cards */
+.gift-card:nth-child(1) { animation-delay: 0.1s; }
+.gift-card:nth-child(2) { animation-delay: 0.2s; }
+.gift-card:nth-child(3) { animation-delay: 0.3s; }
+.gift-card:nth-child(4) { animation-delay: 0.4s; }
+.gift-card:nth-child(5) { animation-delay: 0.5s; }
+.gift-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Efeito de sucesso no botão copiar */
+.btn-success-feedback {
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+    animation: pulse 0.6s ease;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* ========================================
+   RESPONSIVIDADE MOBILE-FIRST
+======================================== */
+
+/* Smartphones pequenos */
+@media (max-width: 576px) {
+    .hero-section {
+        height: 300px;
+    }
+    
+    .modal-dialog {
+        margin: 1rem;
+    }
+    
+    .modal-body {
+        padding: 1.5rem;
+    }
+    
+    .gift-content {
+        padding: 1rem;
+    }
+    
+    .gift-name {
+        font-size: 1.1rem;
+    }
+    
+    .gift-price {
+        font-size: 1.3rem;
+    }
+}
+
+/* Tablets */
+@media (min-width: 768px) {
+    .hero-section {
+        height: 300px;
+    }
+    
+    .gift-image {
+        height: 220px;
+    }
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+    .hero-section {
+        height: 500px;
+    }
+    
+    .gift-image {
+        height: 240px;
+    }
+    
+    .gift-content {
+        padding: 2rem;
+    }
+}
+
+/* ========================================
+   OTIMIZAÇÕES PARA PERFORMANCE MOBILE
+======================================== */
+
+/* Reduzir animações em dispositivos com preferência por movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Otimização para telas de alta densidade */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .wedding-logo,
+    .qr-code {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* ========================================
+   CLASSES UTILITÁRIAS PERSONALIZADAS
+======================================== */
+
+.text-primary-custom {
+    color: var(--primary-color) !important;
+}
+
+.text-secondary-custom {
+    color: var(--secondary-color) !important;
+}
+
+.bg-primary-custom {
+    background-color: var(--primary-color) !important;
+}
+
+.bg-secondary-custom {
+    background-color: var(--secondary-color) !important;
+}
+
+/* Classe para loading state */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Classe para elementos touch-friendly */
+.touch-target {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+/* ===== CONTAGEM REGRESSIVA ===== */
+.countdown-section {
+    padding: 1rem 0;
+    animation: fadeInUp 1s ease-out;
+}
+
+.countdown-title {
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+#countdown .time-box {
+    background: var(--light-gray);
+    border-radius: 12px;
+    padding: 1rem;
+    min-width: 80px;
+    box-shadow: var(--shadow-sm);
+    font-family: var(--font-body);
+    text-align: center;
+}
+
+#countdown .time-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+#countdown .time-label {
+    font-size: 0.9rem;
+    color: var(--dark-gray);
+}
+
+.location-image {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    transition: var(--transition-smooth);
+}
+
+.location-link:hover .location-image {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+    text-decoration: none;
+    color: inherit;
+}
+
+.icon-label {
+    font-size: 1rem;
+    color: var(--dark-gray);
+    font-weight: 500;
+}
+
