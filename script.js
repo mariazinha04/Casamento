@@ -351,7 +351,7 @@ function renderGifts() {
 function createGiftCard(gift, index) {
     // Criar coluna Bootstrap
     const col = document.createElement('div');
-    col.className = 'col-12 col-sm-6 col-lg-4 col-xl-3';
+    col.className = 'col-6 col-md-4 col-lg-3';
     col.style.animationDelay = `${index * 0.1}s`;
     
     // HTML do card
