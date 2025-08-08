@@ -176,13 +176,13 @@ body {
     font-family: var(--font-title);
     color: var(--primary-color);
     font-weight: 400;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5 px;
     margin-top: 1rem;
 }
 
 .section-description {
     color: var(--dark-gray);
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 /* ========================================

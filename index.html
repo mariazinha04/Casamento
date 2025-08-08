@@ -2,6 +2,8 @@
 <html lang="pt-BR">
 <head>
 
+    
+
     <!-- Meta tags essenciais para mobile-first -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,13 +63,18 @@
 
     <!-- Timer de Contagem Regressiva -->
 <section class="countdown-section text-center mb-4">
-    <h2 class="section-title display-5 mb-3">Contagem regressiva...</h2>
-    <div id="countdown" class="d-flex justify-content-center gap-3 flex-wrap"></div>
+    <h2 class="section-title display-6 mb-2">Contagem regressiva...</h2>
+    <p class="icon-label mt-1 mb-1">Faltam apenas</p>
+    <div id="countdown" class="d-flex justify-content-center gap-3 flex-nowrap"></div>
+     <p class="icon-label mb-1 mt-1">para o casamento!</p>
 </section>
 
 <!-- Seção de Localização -->
 <section class="location-section text-center mb-4">
-    <h2 class="section-title display-5 mb-3">Localização</h2>
+    <h2 class="section-title display-6 mb-1">Localização</h2>
+    <p class="section-description fs-6 lead text-muted  ">
+        Clique na imagem para acessar a localização
+    </p>
     <div class="row justify-content-center">
         <!-- Igreja -->
         <div class="col-6 col-md-3">
@@ -75,7 +82,7 @@
                 <img src="imagens/igreja.png" alt="Local da cerimônia" class="location-image">
                     
             </a>
-            <p class="icon-label mt-2">Igreja<br>17 Horas</p>
+            <p class="icon-label mt-2">Igreja: Catedral Sr. Bom Jesus dos Remédios<br>17 Horas</p>
         </div>
         <!-- Festa -->
         <div class="col-6 col-md-3">
@@ -83,7 +90,7 @@
                 <img src="imagens/festa.png" alt="Local da festa" class="location-image">
                 
             </a>
-            <p class="icon-label mt-2">Recepção<br>19 Horas</p>
+            <p class="icon-label mt-2">Recepção: Recanto do Cuuscuz<br>19 Horas</p>
         </div>
     </div>
 </section>
@@ -93,8 +100,8 @@
             <section class="gifts-intro text-center mb-5">
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-10 col-lg-8">
-                        <h2 class="section-title display-5 mb-3">Lista de Presentes</h2>
-                        <p class="section-description lead text-muted">
+                        <h2 class="section-title display-5 mb-1">Lista de Presentes</h2>
+                        <p class="section-description fs-6 lead text-muted">
                             Escolha um presente especial para nós e contribua via PIX de forma prática e segura.
                         </p>
                     </div>
@@ -131,7 +138,7 @@
                         <!-- QR Code -->
                         <div class="col-12 col-md-6 text-center">
                             <div class="qr-code-container">
-                                <img src="imagens/qrcode-pix.png" alt="QR Code PIX" class="qr-code img-fluid rounded shadow-sm">
+                                <img src="imagens/qrcode-pix.jpg" alt="QR Code PIX" class="qr-code img-fluid rounded shadow-sm">
                                 <p class="small text-muted mt-2">QR Code</p>
                             </div>
                         </div>
@@ -145,7 +152,7 @@
                                         <i class="bi bi-key me-1"></i>Chave PIX:
                                     </label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="pixKey" value="seuemail@exemplo.com" readonly>
+                                        <input type="text" class="form-control" id="pixKey" value="larissasbsilva@gmail.com" readonly>
                                         <button class="btn btn-outline-secondary" type="button" id="copyPixBtn">
                                             <i class="bi bi-clipboard me-1"></i>Copiar
                                         </button>

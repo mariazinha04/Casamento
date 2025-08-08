@@ -240,7 +240,7 @@ const gifts = [
 // ========================================
 
 const pixConfig = {
-    key: "seuemail@exemplo.com", // Substitua pela chave PIX real
+    key: "larissasbsilva@gmail.com", // Substitua pela chave PIX real
     qrCode: "imagens/qrcode-pix.png" // Caminho para o QR Code
 };
 
